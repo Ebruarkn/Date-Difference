@@ -1,0 +1,46 @@
+<!DOCTYPE html >
+<html>
+<body>
+
+
+ <p id="sample"></p>
+ <p id="sample1"></p>
+ <p id="sample2"></p>
+ <p id="sample4"></p>
+
+    
+
+<input type="date" value=""  placeholder="mm/dd/yyyy" id="demo">
+<input type="submit" value="Hesapla" onclick="myFunk()">
+<script>
+
+function myFunk(){
+var d1 = document.getElementById("demo").value;
+var today = new Date(); 
+var giris = new Date(d1);
+document.getElementById("sample2").innerHTML="Girilen tarih:"+giris;
+var tooday = (today.getMonth()+1)+ "/" +today.getDate()+ "/" +today.getFullYear();
+document.getElementById("sample").innerHTML= "Bugunun tarihi :"+tooday;
+var giriss = (giris.getMonth()+1) +"/" +giris.getDate()+ "/" +giris.getFullYear();
+var timeDiff = Math.round(today.getTime() - giris.getTime());
+var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
+if(diffDays==1){
+    document.getElementById("sample4").innerHTML="Bugun";
+}else if(diffDays==2 ){
+    document.getElementById("sample4").innerHTML="Dun";
+}else if(diffDays==0)  {
+     document.getElementById("sample4").innerHTML="Yarin";
+}else if(diffDays>1){
+    document.getElementById("sample4").innerHTML=(diffDays-1)+" " +" gun oncesi";
+}else{
+
+document.getElementById("sample4").innerHTML=(-diffDays+1)+" " + " gun sonrasi";
+}
+
+}
+
+
+</script>
+
+</body>
+</html>
